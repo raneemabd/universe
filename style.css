@@ -1,0 +1,121 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: radial-gradient(#555, #000);
+    overflow: hidden;
+}
+@keyframes illusion {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(10deg);
+    }
+  }
+  .stars{
+    width: 100%;
+    height: 100%;
+    background-image: url(stars.png);
+    animation: star-fading 2s infinite alternate, illusion 8s infinite alternate;
+  }
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: transparent;
+    transform: translate(-50%, -50%);
+}
+
+.container .sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(#f4c313, #ec7e08);
+    /* background: rgb(158, 3, 3);
+    background: radial-gradient(circle, rgba(158, 3, 3, 1) 27%, rgba(212, 162, 10, 1) 100%); */
+    transform: translate(-50%, -50%);
+    animation: sunshine 3s infinite alternate;
+}
+
+@keyframes sunshine {
+    from {
+        box-shadow: 0 0 50px #ec7e08;
+    }
+
+    to {
+        box-shadow: 0 0 100px #f4c91a;
+    }
+}
+.container .sun .earth{
+    width: 200px;
+    height: 2px;
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin:left;
+    animation: rotate 10s linear infinite;
+}
+@keyframes rotate
+{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.container .sun .earth:before{
+    content: url(earth.png);
+    width: 40px;
+    height: 50px;
+    border-radius: 50%;
+    /* background-color: blueviolet; */
+    position: absolute;
+    top: -38px;
+    right: -25px;
+}
+.container .sun .earth .moon{
+    width: 70px;
+    height: 2px;
+    background-color: transparent;
+    position: absolute;
+    right: -95px;
+    transform-origin: left ;
+    animation: rotate 5s linear infinite reverse;
+}
+
+.container .sun .earth .moon:before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgb(183, 192, 199);
+    position: absolute;
+    top: -9px;
+    right: -20px;
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes star-fading {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0.4;
+    }}
